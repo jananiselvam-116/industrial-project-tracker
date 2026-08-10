@@ -1,0 +1,352 @@
+/* Tender cards, application timeline, metric checklist, phase grid */
+
+/* ── Tender Card ── */
+.tender-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.tender-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+.tender-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.tender-id-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: hsla(231, 84%, 57%, 0.1);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.tender-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 6px 0 4px;
+}
+.tender-card-category {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.tender-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 12px 0;
+}
+.tender-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.tender-meta-item strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.tender-card-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Tender grid layout */
+.tender-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* ── Application Timeline ── */
+.application-status-timeline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  flex-wrap: wrap;
+}
+.timeline-step {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.timeline-step.done { color: var(--success); }
+.timeline-step.current { color: var(--primary); font-weight: 700; }
+.timeline-step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  flex-shrink: 0;
+}
+.timeline-step.done .timeline-step-dot { background: var(--success); }
+.timeline-step.current .timeline-step-dot { background: var(--primary); }
+.timeline-connector {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  min-width: 20px;
+  max-width: 40px;
+}
+
+/* ── Construction Metric Grid ── */
+.metric-phase-section {
+  margin-bottom: 20px;
+}
+.metric-phase-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.metric-phase-number {
+  width: 22px;
+  height: 22px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+}
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  background: var(--surface-2);
+  transition: border-color var(--transition), background var(--transition);
+  cursor: pointer;
+}
+.metric-item:hover { border-color: var(--primary); background: hsla(231,84%,57%,0.04); }
+.metric-item.claimed {
+  border-color: var(--warning);
+  background: var(--warning-bg);
+}
+.metric-item.verified {
+  border-color: var(--success);
+  background: var(--success-bg);
+}
+.metric-item.rejected {
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+.metric-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 2px solid var(--border);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+}
+.metric-item.claimed .metric-checkbox { border-color: var(--warning); background: var(--warning); color: white; }
+.metric-item.verified .metric-checkbox { border-color: var(--success); background: var(--success); color: white; }
+.metric-item.rejected .metric-checkbox { border-color: var(--danger); background: var(--danger); color: white; }
+
+/* Engineer verification table */
+.verification-table-row td { padding: 10px 14px; font-size: 0.875rem; }
+.verify-actions { display: flex; gap: 8px; }
+
+/* Progress block */
+.progress-block {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.progress-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+.progress-pct-display {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+.progress-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* GPS indicator */
+.gps-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--success-text);
+  background: var(--success-bg);
+  border: 1px solid hsl(142,71%,75%);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* Application card */
+.application-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.application-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.company-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+.company-sub  { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.bid-amount { font-size: 1.25rem; font-weight: 800; color: var(--primary); }
+.bid-label  { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; }
+
+/* Metric verification row in engineer form */
+.metric-verify-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 0.875rem;
+}
+.metric-verify-row.claimed-row {
+  border-color: hsl(37, 91%, 75%);
+  background: var(--warning-bg);
+}
+
+/* Compact info row for project details */
+.info-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+}
+.info-label { color: var(--muted); font-weight: 600; min-width: 130px; flex-shrink: 0; }
+.info-value { color: var(--text); }
+
+/* Document upload zone */
+.doc-upload-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition);
+  background: var(--surface-2);
+}
+.doc-upload-zone:hover {
+  border-color: var(--primary);
+  background: hsla(231,84%,57%,0.03);
+}
+.doc-upload-zone input { display: none; }
+.doc-upload-label { font-size: 0.875rem; color: var(--muted); margin-top: 6px; }
+.doc-file-name { font-size: 0.82rem; color: var(--success-text); margin-top: 6px; font-weight: 600; }
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: grid;
+  place-items: center;
+  z-index: 500;
+  padding: 20px;
+}
+.modal-box {
+  background: white;
+  border-radius: var(--radius-md);
+  width: min(640px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+.modal-head {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+.modal-head h3 { font-size: 1.1rem; font-weight: 700; }
+.modal-close-btn {
+  width: 32px; height: 32px;
+  border: none; background: var(--surface-2);
+  border-radius: 8px; cursor: pointer;
+  font-size: 1.1rem; display: grid; place-items: center;
+}
+.modal-close-btn:hover { background: var(--danger-bg); color: var(--danger); }
+.modal-body { padding: 24px; }
+.modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Government badge for header */
+.gov-header-bar {
+  background: linear-gradient(135deg, hsl(224, 71%, 18%) 0%, hsl(217, 65%, 25%) 100%);
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 3px solid hsl(37, 91%, 55%);
+}
+.gov-emblem { font-size: 1.8rem; }
+.gov-header-text { color: white; }
+.gov-header-title { font-size: 0.95rem; font-weight: 800; letter-spacing: 0.02em; }
+.gov-header-sub { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
